@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function InputFields() {
   const [formData, setFormData] = useState({
@@ -8,6 +8,11 @@ export default function InputFields() {
   });
 
   const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    const defaultTableData = {id: '1', name: 'Aditya', email: 'googleemail@gmail.com'};
+    setTableData([defaultTableData]);
+  }, []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
